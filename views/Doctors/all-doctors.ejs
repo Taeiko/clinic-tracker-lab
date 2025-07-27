@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor list</title>
+</head>
+<body>
+    <h1>All doctors</h1>
+    <% allDocs.forEach((oneDoc)=>{%>
+    <div>
+        <h2>name: <%= oneDoc.name %></h2>
+        <p>specialty: <%= oneDoc.specialty %></p>
+        <p>years of experience: <%= oneDoc.yearsOfExperience %></p>
+    </div>
+  <%  }) %>
+</body>
+</html>

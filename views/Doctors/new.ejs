@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create a new Doctor</h1>
+    <form action="/doctors" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+
+        <label for="specialty">Specialty:</label>
+        <input type="text" id="specialty" name="specialty">
+
+        <label for="yearsOfExperience">Years of Experience:</label>
+        <input type="number" name="yearsOfExperience" required>
+
+        <button>Register Doctor</button>
+    </form>
+</body>
+</html>

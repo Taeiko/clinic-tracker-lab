@@ -5,6 +5,7 @@ const morgan = require("morgan")
 const methodOverride = require("method-override")
 const connectToDB = require("./config/db")
 const doctorRoutes = require("./routes/doctor.routes")
+const appointmentRoutes = require("./routes/appointment.routes")
 
 
 
@@ -19,6 +20,7 @@ connectToDB()
 
 // routes
 app.use("/doctors", doctorRoutes)
+app.use("/appointments", appointmentRoutes)
 
 const port = process.env.PORT || 3000
 

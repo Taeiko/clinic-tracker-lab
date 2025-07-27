@@ -2,7 +2,7 @@ const Doctor = require("../models/Doctor")
 // route it 
 const router = require("express").Router()
 
-// list all of the doctors 
+// register a doctor 
 router.get("/new", async (req,res) =>{
     res.render("doctors/new.ejs")
 })
@@ -18,6 +18,7 @@ router.post("/", async (req, res) =>{
     } 
 })
 
+// list of all dotors
 router.get("/", async(req,res)=>{
     try {
         const allDocs = await Doctor.find()
@@ -27,7 +28,7 @@ router.get("/", async(req,res)=>{
         console.log("failed to fetch doctor list",error)
     }
 })
-
+// find dr by id
 router.get("/:doctorId", async (req,res)=>{
     try {
         const foundDoc = await Doctor.findById(req.params.doctorId)

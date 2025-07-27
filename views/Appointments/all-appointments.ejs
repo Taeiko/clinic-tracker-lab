@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>appointment list</title>
+</head>
+<body>
+    <h1>All appointments</h1>
+    <% allAppointments.forEach((oneAppointment)=>{%>
+        <div>
+    <p>patient name: <%= oneAppointment.patientName %></p>
+    <p>Date: <%= oneAppointment.date %></p>
+    <p>Reason: <%= oneAppointment.reason %></p>
+    <p>Doctor: <%= oneAppointment.doctor %></p>
+        </div>
+    <% }) %>
+</body>
+</html>

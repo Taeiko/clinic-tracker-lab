@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an appointment</title>
+</head>
+<body>
+    <h1>Book an appointment </h1>
+    <form action="/appointments" method="post">
+        <label for="patient name">patient name:</label>
+        <input type="text" title="patName" id="patName">
+        
+        <label for="date">Date: </label>
+        <input type="date" title="date" id="date">
+        
+        <label for="Doctor">Doctor: <%= foundDoc.name %> </label>
+        
+        <label for="reason">Reason:</label>
+        <input type="text" title="reason">
+
+    </form>
+</body>
+</html>

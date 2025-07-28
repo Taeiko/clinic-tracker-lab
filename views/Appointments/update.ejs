@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update an appointment</title>
+</head>
+<body>
+    <h1>Update appointment </h1>
+    <form action="/appointments/edit/<%= foundAppointment._id %>?_method=PUT" method="post">
+        <label for="patientName">patient name:</label>
+        <input type="text" title="patName" id="patientName" name="patientName" value="<%= foundAppointment.patientName %>">
+        
+        <label for="date">Date: </label>
+        <input type="date" title="date" id="date" name="date" value="<%= foundAppointment.date %>">
+        
+        <label for="reason">Reason:</label>
+        <input type="text" title="reason" name="reason" value="<%= foundAppointment.reason %>">
+        
+        <label for="doctor">Doctor: </label>
+        <select name="doctor" id="doctor">
+            <% allDocs.forEach((oneDoc)=>{%>
+                <option value="<%= oneDoc._id %>"><%= oneDoc.name %></option>
+            <% }) %>
+        </select>
+        
+        <button>Update appointment</button>
+    </form>
+
+</body>
+</html>

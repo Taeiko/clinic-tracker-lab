@@ -39,4 +39,43 @@ router.get("/:appointmentId", async (req,res)=>{
 
     }
 })  
+
+// update appointment 
+
+router.get("/edit/:appointmentId", async (req,res)=>{
+    try {
+        const allDocs = await Doctor.find()
+        const foundAppointment = await Appointment.findById(req.params.appointmentId)
+        res.render("appointments/update.ejs", {foundAppointment: foundAppointment, allDocs: allDocs})
+    } catch (error) {
+        console.log("failed to update", error)
+    }
+})
+
+router.put("/edit/:appointmentId", async (req,res)=>{
+    try {
+        const allDocs = await Doctor.find()
+        const foundAppointment = await Appointment.findByIdAndUpdate(req.params.appointmentId, req.body).populate("doctor")
+        res.redirect(`/appointments/${req.params.appointmentId}`)
+    } catch (error) {
+        console.log("failed to update", error)
+    }
+})
+
+
+
+// delete appointment 
+router.post('appointments/delete/:id', async (req,res)=>{
+    try {
+        const deletedAppointmnt = await Appointment.findByIdAndDelete(req.params.id)
+            res.redirect('/appointments')
+    } catch (error) {
+        console.log("failed to fetch appointment list", error)
+    }
+})
+
+
+
+
+
 module.exports = router

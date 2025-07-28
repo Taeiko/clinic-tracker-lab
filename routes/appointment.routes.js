@@ -65,7 +65,7 @@ router.put("/edit/:appointmentId", async (req,res)=>{
 
 
 // delete appointment 
-router.delete('appointments/delete/:id', async (req,res)=>{
+router.delete('/delete/:id', async (req,res)=>{
     try {
         const deletedAppointment = await Appointment.findByIdAndDelete(req.params.id)
             res.redirect('/appointments')

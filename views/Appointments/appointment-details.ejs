@@ -12,7 +12,7 @@
     <p>Reason: <%= foundAppointment.reason %></p>
     <p>Booked Doctor's name: <%= foundAppointment.doctor.name %></p>
 
-    <form action="/appointments/delete <%= foundAppointment._id %>">
+    <form action="/appointments/delete/<%=foundAppointment._id %>?_method=DELETE" method="post">
         <button type="submit">Delete appointment</button>
     </form>
 </body>

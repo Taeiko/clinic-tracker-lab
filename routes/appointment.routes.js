@@ -65,17 +65,26 @@ router.put("/edit/:appointmentId", async (req,res)=>{
 
 
 // delete appointment 
-router.post('appointments/delete/:id', async (req,res)=>{
+router.delete('appointments/delete/:id', async (req,res)=>{
     try {
-        const deletedAppointmnt = await Appointment.findByIdAndDelete(req.params.id)
+        const deletedAppointment = await Appointment.findByIdAndDelete(req.params.id)
             res.redirect('/appointments')
     } catch (error) {
-        console.log("failed to fetch appointment list", error)
+        console.log("failed to delete appointment", error)
     }
 })
 
 
-
+// posting notes
+router.post('/:id/notes', async (req,res)=>{
+    try {
+        const foundAppointment = await Appointment.findById(req.params.id)
+        foundAppointment.notes.push(req.body)
+        await foundAppointment.save()
+    } catch (error) {
+        
+    }
+})
 
 
 module.exports = router

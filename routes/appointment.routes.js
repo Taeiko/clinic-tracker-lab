@@ -30,4 +30,13 @@ router.get("/", async(req,res)=>{
     }
 })
 
+
+// get appointment by id 
+router.get("/:appointmentId", async (req,res)=>{
+    try { const foundAppointment = await Appointment.findById(req.params.appointmentId).populate("doctor")
+        res.render("appointments/appointment-details.ejs",{foundAppointment: foundAppointment})
+    } catch (error){
+
+    }
+})  
 module.exports = router

@@ -8,17 +8,24 @@
 <body>
     <h1>Book an appointment </h1>
     <form action="/appointments" method="post">
-        <label for="patient name">patient name:</label>
-        <input type="text" title="patName" id="patName">
+        <label for="patientName">patient name:</label>
+        <input type="text" title="patName" id="patientName" name="patientName">
         
         <label for="date">Date: </label>
-        <input type="date" title="date" id="date">
-        
-        <label for="Doctor">Doctor: <%= foundDoc.name %> </label>
+        <input type="date" title="date" id="date" name="date">
         
         <label for="reason">Reason:</label>
-        <input type="text" title="reason">
-
+        <input type="text" title="reason" name="reason">
+        
+        <label for="doctor">Doctor: </label>
+        <select multiple name="doctor" id="doctor">
+            <% allDocs.forEach((oneDoc)=>{%>
+                <option value="<%= oneDoc._id %>"><%= oneDoc.name %></option>
+            <% }) %>
+        </select>
+        
+        <button>Book appointment</button>
     </form>
+
 </body>
 </html>

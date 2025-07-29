@@ -11,8 +11,21 @@
     <p>Date: <%= foundAppointment.date %></p>
     <p>Reason: <%= foundAppointment.reason %></p>
     <p>Booked Doctor's name: <%= foundAppointment.doctor.name %></p>
+    
+
+    <h3>Notes: </h3>
+    <form action="/appointments/<%= foundAppointment._id %>/notes" method="post">Doctor's notes:
+    <input name="notes" id="docNotes" type="text" placeholder="notes">
+    <button type="submit">submit note</button>
+    </form>
+
+    <% foundAppointment.notes.forEach((oneNote)=>{%>
+        <p>Note: <%= oneNote.notes%></p>
+    <%}) %>
 
     <form action="/appointments/delete/<%=foundAppointment._id %>?_method=DELETE" method="post">
+        <br>
+        <br>
         <button type="submit">Delete appointment</button>
     </form>
 </body>

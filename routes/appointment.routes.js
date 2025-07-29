@@ -34,6 +34,7 @@ router.get("/", async(req,res)=>{
 // get appointment by id 
 router.get("/:appointmentId", async (req,res)=>{
     try { const foundAppointment = await Appointment.findById(req.params.appointmentId).populate("doctor")
+        console.log(foundAppointment)
         res.render("appointments/appointment-details.ejs",{foundAppointment: foundAppointment})
     } catch (error){
 
@@ -81,6 +82,7 @@ router.post('/:id/notes', async (req,res)=>{
         const foundAppointment = await Appointment.findById(req.params.id)
         foundAppointment.notes.push(req.body)
         await foundAppointment.save()
+        res.redirect(`/appointments/${foundAppointment._id}`)
     } catch (error) {
         
     }
